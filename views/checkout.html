@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+        {{ range .Products }}
+        <tr>
+            <td>{{ .Name }}</td>
+            <td>{{ .Price }}</td>
+        </tr>
+        {{ end }}
+        <tr>
+            <td><b>TOTAL</b></td>
+            <td><b>{{ .Total }}</b></td>
+        </tr>
+    </table>
+    <p>Selected payment: {{ .Payment.Name }}</p>
+    {{ if eq .Payment.Code "webpay" }}
+    <form method="post" action={{ .PaymentData.url }}>
+        <input type="hidden" name="token_ws" value={{ .PaymentData.token }} />
+        <input type="submit" value="Ir a pagar" />
+    </form>
+    {{ end }}
+</body>
+</html>

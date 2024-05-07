@@ -1,0 +1,53 @@
+{
+    "subscriptions": [
+        {
+            "code": "30_days",
+            "name": "30 days",
+            "price": 10000
+        },
+        {
+            "code": "60_days",
+            "name": "60 days",
+            "price": 18000
+        },
+        {
+            "code": "90_days",
+            "name": "90 days",
+            "price": 24000
+        }
+    ],
+    "optionals": [
+        {
+            "code": "7_days",
+            "name": "7 days gift",
+            "price": 3000
+        },
+        {
+            "code": "plushie",
+            "name": "Promotional plushie",
+            "price": 7500
+        },
+        {
+            "code": "bag",
+            "name": "Promotional bag",
+            "price": 4500
+        }
+    ],
+    "payments": [
+        {
+            "code": "webpay",
+            "name": "Webpay",
+            "available": true
+        },
+        {
+            "code": "mercado_pago",
+            "name": "Mercado Pago",
+            "available": true
+        },
+        {
+            "code": "getnet",
+            "name": "Getnet",
+            "available": false
+        }
+    ]
+}

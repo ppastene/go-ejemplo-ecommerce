@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My awesome shopping site</h1>
+    <form action="/checkout" method="POST">
+        <p>Select days of subscription (mandatory)</p>
+        {{ range $k, $v := .Subscriptions}}
+        <input type="radio" name="subscription" value={{ $v.Code }} {{ if eq $k 0 }}required{{ end }}><label for={{ $v.Code }}>{{ $v.Name }}</label>
+        {{ end }}
+        <p>Select any optional value</p>
+        {{ range .Optionals }}
+        <input type="checkbox" name="optional" value={{ .Code }}><label for={{ .Code }}>{{ .Name }}</label>
+        {{ end }}
+        <p>Select payment method</p>
+        {{ range $k, $v := .Payments }}
+        <input type="radio" name="payment" value={{ $v.Code }} {{ if eq $k 0 }}required{{ end }} {{ if ne $v.Available true }}disabled{{ end }}><label for={{ $v.Code }}>{{ $v.Name }}</label>
+        {{ end }}
+        <br>
+        <button type="submit">Go to checkout</button>
+    </form>
+</body>
+</html>
